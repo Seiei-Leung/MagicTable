@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="8702588a-290d-4e88-8ec1-92671373253e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://192.168.0.198:9990/BllService_Test/ECommerceServiceMgr.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ECommerceServiceMgr4.xsd" MetadataType="Schema" ID="c3f14fe0-e794-458c-a0e8-79ba4c975c97" SourceId="1" SourceUrl="http://192.168.0.198:9990/BllService_Test/ECommerceServiceMgr.svc?xsd=xsd2" />
+    <MetadataFile FileName="ECommerceServiceMgr5.xsd" MetadataType="Schema" ID="8378b95c-3869-4e42-97f1-b83b21cd3d69" SourceId="1" SourceUrl="http://192.168.0.198:9990/BllService_Test/ECommerceServiceMgr.svc?xsd=xsd1" />
+    <MetadataFile FileName="ECommerceServiceMgr2.disco" MetadataType="Disco" ID="f718c9af-331d-4936-8688-00dc882b37c0" SourceId="1" SourceUrl="http://192.168.0.198:9990/BllService_Test/ECommerceServiceMgr.svc?disco" />
+    <MetadataFile FileName="ECommerceServiceMgr2.wsdl" MetadataType="Wsdl" ID="2cead658-2eb6-4c36-9e15-2303978664b0" SourceId="1" SourceUrl="http://192.168.0.198:9990/BllService_Test/ECommerceServiceMgr.svc?wsdl" />
+    <MetadataFile FileName="ECommerceServiceMgr6.xsd" MetadataType="Schema" ID="a555ded7-a90d-4000-9d7e-ce0447c333a4" SourceId="1" SourceUrl="http://192.168.0.198:9990/BllService_Test/ECommerceServiceMgr.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

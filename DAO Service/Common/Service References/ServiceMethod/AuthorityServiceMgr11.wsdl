@@ -1,0 +1,873 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="AuthorityServiceMgr" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="WSHttpBinding_IAuthorityServiceMgr_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsrm:RMAssertion xmlns:wsrm="http://schemas.xmlsoap.org/ws/2005/02/rm/policy">
+          <wsrm:InactivityTimeout Milliseconds="600000" />
+          <wsrm:AcknowledgementInterval Milliseconds="200" />
+        </wsrm:RMAssertion>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://192.168.0.198/BllService_Test/AuthorityServiceMgr.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://192.168.0.198/BllService_Test/AuthorityServiceMgr.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://192.168.0.198/BllService_Test/AuthorityServiceMgr.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+      <xsd:import schemaLocation="http://192.168.0.198/BllService_Test/AuthorityServiceMgr.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/BllService" />
+      <xsd:import schemaLocation="http://192.168.0.198/BllService_Test/AuthorityServiceMgr.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Model" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IAuthorityServiceMgr_GetSysModSingledl_BBySerialno_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysModSingledl_BBySerialno" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_GetSysModSingledl_BBySerialno_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysModSingledl_BBySerialnoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_GetSysModSingledl_DBySerialno_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysModSingledl_DBySerialno" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_GetSysModSingledl_DBySerialno_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysModSingledl_DBySerialnoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_GetSyModManageByClass_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSyModManageByClass" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_GetSyModManageByClass_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSyModManageByClassResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_GetSyModManage_ConfigByClass_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSyModManage_ConfigByClass" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_GetSyModManage_ConfigByClass_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSyModManage_ConfigByClassResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_GetSyModManagedl_MByClass_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSyModManagedl_MByClass" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_GetSyModManagedl_MByClass_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSyModManagedl_MByClassResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_GetSyModManagedl_BByClass_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSyModManagedl_BByClass" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_GetSyModManagedl_BByClass_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSyModManagedl_BByClassResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_GetSyModManagedl_DByClass_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSyModManagedl_DByClass" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_GetSyModManagedl_DByClass_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSyModManagedl_DByClassResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_GetSyModManagedl_DragByClass_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSyModManagedl_DragByClass" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_GetSyModManagedl_DragByClass_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSyModManagedl_DragByClassResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_GetSyModSingle_ConfigByClass_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSyModSingle_ConfigByClass" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_GetSyModSingle_ConfigByClass_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSyModSingle_ConfigByClassResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_GetSyModSingledl_BByClass_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSyModSingledl_BByClass" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_GetSyModSingledl_BByClass_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSyModSingledl_BByClassResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_GetSyModSingledl_DByClass_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSyModSingledl_DByClass" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_GetSyModSingledl_DByClass_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSyModSingledl_DByClassResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_ModSingleNodeHasList_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModSingleNodeHasList" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_ModSingleNodeHasList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModSingleNodeHasListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_ModSingleNodeHasChild_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModSingleNodeHasChild" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_ModSingleNodeHasChild_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModSingleNodeHasChildResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_ModSingleGetTreeCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModSingleGetTreeCode" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_ModSingleGetTreeCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModSingleGetTreeCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_GetControlProperties_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetControlProperties" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_GetControlProperties_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetControlPropertiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_ExecSproc_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExecSproc" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_ExecSproc_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExecSprocResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_GetUserGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserGroup" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_GetUserGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_GetUsersByGroupID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersByGroupID" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_GetUsersByGroupID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersByGroupIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_GetUserRight_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserRight" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_GetUserRight_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserRightResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_SaveData_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveData" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_SaveData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_GetAllRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRole" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_GetAllRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_GetRoleRight_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRoleRight" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_GetRoleRight_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRoleRightResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_GetUpdateFileList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUpdateFileList" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_GetUpdateFileList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUpdateFileListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_GetSysModManageBySerialno_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysModManageBySerialno" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_GetSysModManageBySerialno_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysModManageBySerialnoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_OpenDataSingle_InputMessage">
+    <wsdl:part name="parameters" element="tns:OpenDataSingle" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_OpenDataSingle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OpenDataSingleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_DeleteUserRights_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserRights" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_DeleteUserRights_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserRightsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_InsertUserRights_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertUserRights" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_InsertUserRights_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertUserRightsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_DeleteRoleRights_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRoleRights" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_DeleteRoleRights_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRoleRightsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_InsertRoleRights_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertRoleRights" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_InsertRoleRights_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertRoleRightsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_StopSession_InputMessage">
+    <wsdl:part name="parameters" element="tns:StopSession" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_StopSession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StopSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_GetUserByCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByCode" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_GetUserByCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_GetUserAllRights_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserAllRights" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_GetUserAllRights_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserAllRightsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_GetUserMod_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserMod" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_GetUserMod_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserModResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_GetUserRoleByUserId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserRoleByUserId" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_GetUserRoleByUserId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserRoleByUserIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_GetSysModManage_ConfigBySerialno_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysModManage_ConfigBySerialno" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_GetSysModManage_ConfigBySerialno_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysModManage_ConfigBySerialnoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_GetSysModManagedl_MBySerialno_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysModManagedl_MBySerialno" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_GetSysModManagedl_MBySerialno_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysModManagedl_MBySerialnoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_GetSysModManagedl_BBySerialno_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysModManagedl_BBySerialno" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_GetSysModManagedl_BBySerialno_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysModManagedl_BBySerialnoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_GetSysModManagedl_DBySerialno_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysModManagedl_DBySerialno" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_GetSysModManagedl_DBySerialno_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysModManagedl_DBySerialnoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_GetSysModManagedl_DragBySerialno_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysModManagedl_DragBySerialno" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_GetSysModManagedl_DragBySerialno_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysModManagedl_DragBySerialnoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_GetSysModManageByModType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysModManageByModType" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_GetSysModManageByModType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysModManageByModTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_ModManageCheckSameClass_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModManageCheckSameClass" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_ModManageCheckSameClass_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModManageCheckSameClassResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_GetSysModManage_BillnoRuleBySerialno_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysModManage_BillnoRuleBySerialno" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_GetSysModManage_BillnoRuleBySerialno_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysModManage_BillnoRuleBySerialnoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_GetSysModSingle_ConfigBySerialno_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysModSingle_ConfigBySerialno" />
+  </wsdl:message>
+  <wsdl:message name="IAuthorityServiceMgr_GetSysModSingle_ConfigBySerialno_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysModSingle_ConfigBySerialnoResponse" />
+  </wsdl:message>
+  <wsdl:portType msc:usingSession="true" name="IAuthorityServiceMgr">
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetSysModSingledl_BBySerialno">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetSysModSingledl_BBySerialno" message="tns:IAuthorityServiceMgr_GetSysModSingledl_BBySerialno_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetSysModSingledl_BBySerialnoResponse" message="tns:IAuthorityServiceMgr_GetSysModSingledl_BBySerialno_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetSysModSingledl_DBySerialno">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetSysModSingledl_DBySerialno" message="tns:IAuthorityServiceMgr_GetSysModSingledl_DBySerialno_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetSysModSingledl_DBySerialnoResponse" message="tns:IAuthorityServiceMgr_GetSysModSingledl_DBySerialno_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetSyModManageByClass">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetSyModManageByClass" message="tns:IAuthorityServiceMgr_GetSyModManageByClass_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetSyModManageByClassResponse" message="tns:IAuthorityServiceMgr_GetSyModManageByClass_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetSyModManage_ConfigByClass">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetSyModManage_ConfigByClass" message="tns:IAuthorityServiceMgr_GetSyModManage_ConfigByClass_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetSyModManage_ConfigByClassResponse" message="tns:IAuthorityServiceMgr_GetSyModManage_ConfigByClass_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetSyModManagedl_MByClass">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetSyModManagedl_MByClass" message="tns:IAuthorityServiceMgr_GetSyModManagedl_MByClass_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetSyModManagedl_MByClassResponse" message="tns:IAuthorityServiceMgr_GetSyModManagedl_MByClass_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetSyModManagedl_BByClass">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetSyModManagedl_BByClass" message="tns:IAuthorityServiceMgr_GetSyModManagedl_BByClass_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetSyModManagedl_BByClassResponse" message="tns:IAuthorityServiceMgr_GetSyModManagedl_BByClass_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetSyModManagedl_DByClass">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetSyModManagedl_DByClass" message="tns:IAuthorityServiceMgr_GetSyModManagedl_DByClass_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetSyModManagedl_DByClassResponse" message="tns:IAuthorityServiceMgr_GetSyModManagedl_DByClass_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetSyModManagedl_DragByClass">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetSyModManagedl_DragByClass" message="tns:IAuthorityServiceMgr_GetSyModManagedl_DragByClass_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetSyModManagedl_DragByClassResponse" message="tns:IAuthorityServiceMgr_GetSyModManagedl_DragByClass_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetSyModSingle_ConfigByClass">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetSyModSingle_ConfigByClass" message="tns:IAuthorityServiceMgr_GetSyModSingle_ConfigByClass_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetSyModSingle_ConfigByClassResponse" message="tns:IAuthorityServiceMgr_GetSyModSingle_ConfigByClass_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetSyModSingledl_BByClass">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetSyModSingledl_BByClass" message="tns:IAuthorityServiceMgr_GetSyModSingledl_BByClass_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetSyModSingledl_BByClassResponse" message="tns:IAuthorityServiceMgr_GetSyModSingledl_BByClass_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetSyModSingledl_DByClass">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetSyModSingledl_DByClass" message="tns:IAuthorityServiceMgr_GetSyModSingledl_DByClass_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetSyModSingledl_DByClassResponse" message="tns:IAuthorityServiceMgr_GetSyModSingledl_DByClass_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="ModSingleNodeHasList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/ModSingleNodeHasList" message="tns:IAuthorityServiceMgr_ModSingleNodeHasList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/ModSingleNodeHasListResponse" message="tns:IAuthorityServiceMgr_ModSingleNodeHasList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="ModSingleNodeHasChild">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/ModSingleNodeHasChild" message="tns:IAuthorityServiceMgr_ModSingleNodeHasChild_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/ModSingleNodeHasChildResponse" message="tns:IAuthorityServiceMgr_ModSingleNodeHasChild_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="ModSingleGetTreeCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/ModSingleGetTreeCode" message="tns:IAuthorityServiceMgr_ModSingleGetTreeCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/ModSingleGetTreeCodeResponse" message="tns:IAuthorityServiceMgr_ModSingleGetTreeCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetControlProperties">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetControlProperties" message="tns:IAuthorityServiceMgr_GetControlProperties_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetControlPropertiesResponse" message="tns:IAuthorityServiceMgr_GetControlProperties_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="ExecSproc">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/ExecSproc" message="tns:IAuthorityServiceMgr_ExecSproc_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/ExecSprocResponse" message="tns:IAuthorityServiceMgr_ExecSproc_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetUserGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetUserGroup" message="tns:IAuthorityServiceMgr_GetUserGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetUserGroupResponse" message="tns:IAuthorityServiceMgr_GetUserGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetUsersByGroupID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetUsersByGroupID" message="tns:IAuthorityServiceMgr_GetUsersByGroupID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetUsersByGroupIDResponse" message="tns:IAuthorityServiceMgr_GetUsersByGroupID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetUserRight">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetUserRight" message="tns:IAuthorityServiceMgr_GetUserRight_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetUserRightResponse" message="tns:IAuthorityServiceMgr_GetUserRight_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="SaveData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/SaveData" message="tns:IAuthorityServiceMgr_SaveData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/SaveDataResponse" message="tns:IAuthorityServiceMgr_SaveData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetAllRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetAllRole" message="tns:IAuthorityServiceMgr_GetAllRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetAllRoleResponse" message="tns:IAuthorityServiceMgr_GetAllRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetRoleRight">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetRoleRight" message="tns:IAuthorityServiceMgr_GetRoleRight_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetRoleRightResponse" message="tns:IAuthorityServiceMgr_GetRoleRight_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetUpdateFileList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetUpdateFileList" message="tns:IAuthorityServiceMgr_GetUpdateFileList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetUpdateFileListResponse" message="tns:IAuthorityServiceMgr_GetUpdateFileList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetSysModManageBySerialno">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetSysModManageBySerialno" message="tns:IAuthorityServiceMgr_GetSysModManageBySerialno_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetSysModManageBySerialnoResponse" message="tns:IAuthorityServiceMgr_GetSysModManageBySerialno_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="OpenDataSingle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/OpenDataSingle" message="tns:IAuthorityServiceMgr_OpenDataSingle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/OpenDataSingleResponse" message="tns:IAuthorityServiceMgr_OpenDataSingle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="DeleteUserRights">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/DeleteUserRights" message="tns:IAuthorityServiceMgr_DeleteUserRights_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/DeleteUserRightsResponse" message="tns:IAuthorityServiceMgr_DeleteUserRights_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="InsertUserRights">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/InsertUserRights" message="tns:IAuthorityServiceMgr_InsertUserRights_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/InsertUserRightsResponse" message="tns:IAuthorityServiceMgr_InsertUserRights_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="DeleteRoleRights">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/DeleteRoleRights" message="tns:IAuthorityServiceMgr_DeleteRoleRights_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/DeleteRoleRightsResponse" message="tns:IAuthorityServiceMgr_DeleteRoleRights_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="InsertRoleRights">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/InsertRoleRights" message="tns:IAuthorityServiceMgr_InsertRoleRights_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/InsertRoleRightsResponse" message="tns:IAuthorityServiceMgr_InsertRoleRights_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="Login">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/Login" message="tns:IAuthorityServiceMgr_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/LoginResponse" message="tns:IAuthorityServiceMgr_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="false" msc:isTerminating="true" name="StopSession">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/StopSession" message="tns:IAuthorityServiceMgr_StopSession_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/StopSessionResponse" message="tns:IAuthorityServiceMgr_StopSession_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetUserByCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetUserByCode" message="tns:IAuthorityServiceMgr_GetUserByCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetUserByCodeResponse" message="tns:IAuthorityServiceMgr_GetUserByCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetUserAllRights">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetUserAllRights" message="tns:IAuthorityServiceMgr_GetUserAllRights_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetUserAllRightsResponse" message="tns:IAuthorityServiceMgr_GetUserAllRights_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetUserMod">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetUserMod" message="tns:IAuthorityServiceMgr_GetUserMod_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetUserModResponse" message="tns:IAuthorityServiceMgr_GetUserMod_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetUserRoleByUserId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetUserRoleByUserId" message="tns:IAuthorityServiceMgr_GetUserRoleByUserId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetUserRoleByUserIdResponse" message="tns:IAuthorityServiceMgr_GetUserRoleByUserId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetSysModManage_ConfigBySerialno">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetSysModManage_ConfigBySerialno" message="tns:IAuthorityServiceMgr_GetSysModManage_ConfigBySerialno_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetSysModManage_ConfigBySerialnoResponse" message="tns:IAuthorityServiceMgr_GetSysModManage_ConfigBySerialno_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetSysModManagedl_MBySerialno">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetSysModManagedl_MBySerialno" message="tns:IAuthorityServiceMgr_GetSysModManagedl_MBySerialno_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetSysModManagedl_MBySerialnoResponse" message="tns:IAuthorityServiceMgr_GetSysModManagedl_MBySerialno_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetSysModManagedl_BBySerialno">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetSysModManagedl_BBySerialno" message="tns:IAuthorityServiceMgr_GetSysModManagedl_BBySerialno_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetSysModManagedl_BBySerialnoResponse" message="tns:IAuthorityServiceMgr_GetSysModManagedl_BBySerialno_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetSysModManagedl_DBySerialno">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetSysModManagedl_DBySerialno" message="tns:IAuthorityServiceMgr_GetSysModManagedl_DBySerialno_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetSysModManagedl_DBySerialnoResponse" message="tns:IAuthorityServiceMgr_GetSysModManagedl_DBySerialno_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetSysModManagedl_DragBySerialno">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetSysModManagedl_DragBySerialno" message="tns:IAuthorityServiceMgr_GetSysModManagedl_DragBySerialno_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetSysModManagedl_DragBySerialnoResponse" message="tns:IAuthorityServiceMgr_GetSysModManagedl_DragBySerialno_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetSysModManageByModType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetSysModManageByModType" message="tns:IAuthorityServiceMgr_GetSysModManageByModType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetSysModManageByModTypeResponse" message="tns:IAuthorityServiceMgr_GetSysModManageByModType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="ModManageCheckSameClass">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/ModManageCheckSameClass" message="tns:IAuthorityServiceMgr_ModManageCheckSameClass_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/ModManageCheckSameClassResponse" message="tns:IAuthorityServiceMgr_ModManageCheckSameClass_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetSysModManage_BillnoRuleBySerialno">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetSysModManage_BillnoRuleBySerialno" message="tns:IAuthorityServiceMgr_GetSysModManage_BillnoRuleBySerialno_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetSysModManage_BillnoRuleBySerialnoResponse" message="tns:IAuthorityServiceMgr_GetSysModManage_BillnoRuleBySerialno_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetSysModSingle_ConfigBySerialno">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetSysModSingle_ConfigBySerialno" message="tns:IAuthorityServiceMgr_GetSysModSingle_ConfigBySerialno_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthorityServiceMgr/GetSysModSingle_ConfigBySerialnoResponse" message="tns:IAuthorityServiceMgr_GetSysModSingle_ConfigBySerialno_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSHttpBinding_IAuthorityServiceMgr" type="tns:IAuthorityServiceMgr">
+    <wsp:PolicyReference URI="#WSHttpBinding_IAuthorityServiceMgr_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetSysModSingledl_BBySerialno">
+      <soap12:operation soapAction="http://tempuri.org/IAuthorityServiceMgr/GetSysModSingledl_BBySerialno" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSysModSingledl_DBySerialno">
+      <soap12:operation soapAction="http://tempuri.org/IAuthorityServiceMgr/GetSysModSingledl_DBySerialno" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSyModManageByClass">
+      <soap12:operation soapAction="http://tempuri.org/IAuthorityServiceMgr/GetSyModManageByClass" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSyModManage_ConfigByClass">
+      <soap12:operation soapAction="http://tempuri.org/IAuthorityServiceMgr/GetSyModManage_ConfigByClass" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSyModManagedl_MByClass">
+      <soap12:operation soapAction="http://tempuri.org/IAuthorityServiceMgr/GetSyModManagedl_MByClass" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSyModManagedl_BByClass">
+      <soap12:operation soapAction="http://tempuri.org/IAuthorityServiceMgr/GetSyModManagedl_BByClass" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSyModManagedl_DByClass">
+      <soap12:operation soapAction="http://tempuri.org/IAuthorityServiceMgr/GetSyModManagedl_DByClass" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSyModManagedl_DragByClass">
+      <soap12:operation soapAction="http://tempuri.org/IAuthorityServiceMgr/GetSyModManagedl_DragByClass" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSyModSingle_ConfigByClass">
+      <soap12:operation soapAction="http://tempuri.org/IAuthorityServiceMgr/GetSyModSingle_ConfigByClass" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSyModSingledl_BByClass">
+      <soap12:operation soapAction="http://tempuri.org/IAuthorityServiceMgr/GetSyModSingledl_BByClass" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSyModSingledl_DByClass">
+      <soap12:operation soapAction="http://tempuri.org/IAuthorityServiceMgr/GetSyModSingledl_DByClass" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModSingleNodeHasList">
+      <soap12:operation soapAction="http://tempuri.org/IAuthorityServiceMgr/ModSingleNodeHasList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModSingleNodeHasChild">
+      <soap12:operation soapAction="http://tempuri.org/IAuthorityServiceMgr/ModSingleNodeHasChild" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModSingleGetTreeCode">
+      <soap12:operation soapAction="http://tempuri.org/IAuthorityServiceMgr/ModSingleGetTreeCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetControlProperties">
+      <soap12:operation soapAction="http://tempuri.org/IAuthorityServiceMgr/GetControlProperties" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecSproc">
+      <soap12:operation soapAction="http://tempuri.org/IAuthorityServiceMgr/ExecSproc" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserGroup">
+      <soap12:operation soapAction="http://tempuri.org/IAuthorityServiceMgr/GetUserGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersByGroupID">
+      <soap12:operation soapAction="http://tempuri.org/IAuthorityServiceMgr/GetUsersByGroupID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserRight">
+      <soap12:operation soapAction="http://tempuri.org/IAuthorityServiceMgr/GetUserRight" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveData">
+      <soap12:operation soapAction="http://tempuri.org/IAuthorityServiceMgr/SaveData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRole">
+      <soap12:operation soapAction="http://tempuri.org/IAuthorityServiceMgr/GetAllRole" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoleRight">
+      <soap12:operation soapAction="http://tempuri.org/IAuthorityServiceMgr/GetRoleRight" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdateFileList">
+      <soap12:operation soapAction="http://tempuri.org/IAuthorityServiceMgr/GetUpdateFileList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSysModManageBySerialno">
+      <soap12:operation soapAction="http://tempuri.org/IAuthorityServiceMgr/GetSysModManageBySerialno" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OpenDataSingle">
+      <soap12:operation soapAction="http://tempuri.org/IAuthorityServiceMgr/OpenDataSingle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUserRights">
+      <soap12:operation soapAction="http://tempuri.org/IAuthorityServiceMgr/DeleteUserRights" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertUserRights">
+      <soap12:operation soapAction="http://tempuri.org/IAuthorityServiceMgr/InsertUserRights" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRoleRights">
+      <soap12:operation soapAction="http://tempuri.org/IAuthorityServiceMgr/DeleteRoleRights" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertRoleRights">
+      <soap12:operation soapAction="http://tempuri.org/IAuthorityServiceMgr/InsertRoleRights" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap12:operation soapAction="http://tempuri.org/IAuthorityServiceMgr/Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StopSession">
+      <soap12:operation soapAction="http://tempuri.org/IAuthorityServiceMgr/StopSession" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByCode">
+      <soap12:operation soapAction="http://tempuri.org/IAuthorityServiceMgr/GetUserByCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserAllRights">
+      <soap12:operation soapAction="http://tempuri.org/IAuthorityServiceMgr/GetUserAllRights" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserMod">
+      <soap12:operation soapAction="http://tempuri.org/IAuthorityServiceMgr/GetUserMod" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserRoleByUserId">
+      <soap12:operation soapAction="http://tempuri.org/IAuthorityServiceMgr/GetUserRoleByUserId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSysModManage_ConfigBySerialno">
+      <soap12:operation soapAction="http://tempuri.org/IAuthorityServiceMgr/GetSysModManage_ConfigBySerialno" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSysModManagedl_MBySerialno">
+      <soap12:operation soapAction="http://tempuri.org/IAuthorityServiceMgr/GetSysModManagedl_MBySerialno" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSysModManagedl_BBySerialno">
+      <soap12:operation soapAction="http://tempuri.org/IAuthorityServiceMgr/GetSysModManagedl_BBySerialno" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSysModManagedl_DBySerialno">
+      <soap12:operation soapAction="http://tempuri.org/IAuthorityServiceMgr/GetSysModManagedl_DBySerialno" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSysModManagedl_DragBySerialno">
+      <soap12:operation soapAction="http://tempuri.org/IAuthorityServiceMgr/GetSysModManagedl_DragBySerialno" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSysModManageByModType">
+      <soap12:operation soapAction="http://tempuri.org/IAuthorityServiceMgr/GetSysModManageByModType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModManageCheckSameClass">
+      <soap12:operation soapAction="http://tempuri.org/IAuthorityServiceMgr/ModManageCheckSameClass" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSysModManage_BillnoRuleBySerialno">
+      <soap12:operation soapAction="http://tempuri.org/IAuthorityServiceMgr/GetSysModManage_BillnoRuleBySerialno" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSysModSingle_ConfigBySerialno">
+      <soap12:operation soapAction="http://tempuri.org/IAuthorityServiceMgr/GetSysModSingle_ConfigBySerialno" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AuthorityServiceMgr">
+    <wsdl:port name="WSHttpBinding_IAuthorityServiceMgr" binding="tns:WSHttpBinding_IAuthorityServiceMgr">
+      <soap12:address location="http://192.168.0.198/BllService_Test/AuthorityServiceMgr.svc" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>http://192.168.0.198/BllService_Test/AuthorityServiceMgr.svc</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

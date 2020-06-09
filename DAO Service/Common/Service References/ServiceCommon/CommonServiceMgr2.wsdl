@@ -1,0 +1,684 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CommonServiceMgr" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="WSHttpBinding_ICommonServiceMgr_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsrm:RMAssertion xmlns:wsrm="http://schemas.xmlsoap.org/ws/2005/02/rm/policy">
+          <wsrm:InactivityTimeout Milliseconds="600000" />
+          <wsrm:AcknowledgementInterval Milliseconds="200" />
+        </wsrm:RMAssertion>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://192.168.0.198/BllService/CommonServiceMgr.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://192.168.0.198/BllService/CommonServiceMgr.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://192.168.0.198/BllService/CommonServiceMgr.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/BllService" />
+      <xsd:import schemaLocation="http://192.168.0.198/BllService/CommonServiceMgr.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+      <xsd:import schemaLocation="http://192.168.0.198/BllService/CommonServiceMgr.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://192.168.0.198/BllService/CommonServiceMgr.svc?xsd=xsd5" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ICommonServiceMgr_ExecSporc_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExecSporc" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_ExecSporc_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExecSporcResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_GetPrintTemplateByClassName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPrintTemplateByClassName" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_GetPrintTemplateByClassName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPrintTemplateByClassNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_GetPrintTemplateColumn_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPrintTemplateColumn" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_GetPrintTemplateColumn_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPrintTemplateColumnResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_GetPrintTemplateByCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPrintTemplateByCode" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_GetPrintTemplateByCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPrintTemplateByCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_ExecMenuProcedure_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExecMenuProcedure" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_ExecMenuProcedure_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExecMenuProcedureResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_CheckModIsWorkFlow_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckModIsWorkFlow" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_CheckModIsWorkFlow_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckModIsWorkFlowResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_StartSession_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartSession" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_StartSession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_SearchMaster_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchMaster" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_SearchMaster_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchMasterResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_SearchMasterBySerialno_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchMasterBySerialno" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_SearchMasterBySerialno_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchMasterBySerialnoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_SerarchData_InputMessage">
+    <wsdl:part name="parameters" element="tns:SerarchData" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_SerarchData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SerarchDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_SearchData2_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchData2" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_SearchData2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchData2Response" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_SaveData_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveData" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_SaveData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_SaveData2_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveData2" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_SaveData2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveData2Response" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_ChangeBillStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeBillStatus" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_ChangeBillStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeBillStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_Print_InputMessage">
+    <wsdl:part name="parameters" element="tns:Print" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_Print_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PrintResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_GetSystemDatetime_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSystemDatetime" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_GetSystemDatetime_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSystemDatetimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_CreateBillno_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateBillno" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_CreateBillno_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateBillnoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_GetExcelTemplate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetExcelTemplate" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_GetExcelTemplate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetExcelTemplateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_SaveExcelTemplate_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveExcelTemplate" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_SaveExcelTemplate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveExcelTemplateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_RunSQL_InputMessage">
+    <wsdl:part name="parameters" element="tns:RunSQL" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_RunSQL_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RunSQLResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_GetExcelTemplateByCatId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetExcelTemplateByCatId" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_GetExcelTemplateByCatId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetExcelTemplateByCatIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_DeleteExcelTemplateByCatId_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteExcelTemplateByCatId" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_DeleteExcelTemplateByCatId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteExcelTemplateByCatIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_SaveSingleData_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveSingleData" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_SaveSingleData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveSingleDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_DeleteBySingleId_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBySingleId" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_DeleteBySingleId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBySingleIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_SearchSingleList_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchSingleList" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_SearchSingleList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchSingleListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_SearchSingleTree_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchSingleTree" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_SearchSingleTree_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchSingleTreeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_GetSearchPanelHeight_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSearchPanelHeight" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_GetSearchPanelHeight_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSearchPanelHeightResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_GetSyModSearch_M_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSyModSearch_M" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_GetSyModSearch_M_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSyModSearch_MResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_GetSYModSearch_B_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSYModSearch_B" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_GetSYModSearch_B_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSYModSearch_BResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_GetSYModSearch_D_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSYModSearch_D" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_GetSYModSearch_D_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSYModSearch_DResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_GetSYModInput_D_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSYModInput_D" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_GetSYModInput_D_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSYModInput_DResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_GetSYModInput_B_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSYModInput_B" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_GetSYModInput_B_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSYModInput_BResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_GetSYModInput_M_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSYModInput_M" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_GetSYModInput_M_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSYModInput_MResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_GetSYModInput_Congfig_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSYModInput_Congfig" />
+  </wsdl:message>
+  <wsdl:message name="ICommonServiceMgr_GetSYModInput_Congfig_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSYModInput_CongfigResponse" />
+  </wsdl:message>
+  <wsdl:portType msc:usingSession="true" name="ICommonServiceMgr">
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="ExecSporc">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonServiceMgr/ExecSporc" message="tns:ICommonServiceMgr_ExecSporc_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonServiceMgr/ExecSporcResponse" message="tns:ICommonServiceMgr_ExecSporc_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetPrintTemplateByClassName">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonServiceMgr/GetPrintTemplateByClassName" message="tns:ICommonServiceMgr_GetPrintTemplateByClassName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonServiceMgr/GetPrintTemplateByClassNameResponse" message="tns:ICommonServiceMgr_GetPrintTemplateByClassName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetPrintTemplateColumn">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonServiceMgr/GetPrintTemplateColumn" message="tns:ICommonServiceMgr_GetPrintTemplateColumn_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonServiceMgr/GetPrintTemplateColumnResponse" message="tns:ICommonServiceMgr_GetPrintTemplateColumn_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetPrintTemplateByCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonServiceMgr/GetPrintTemplateByCode" message="tns:ICommonServiceMgr_GetPrintTemplateByCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonServiceMgr/GetPrintTemplateByCodeResponse" message="tns:ICommonServiceMgr_GetPrintTemplateByCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="ExecMenuProcedure">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonServiceMgr/ExecMenuProcedure" message="tns:ICommonServiceMgr_ExecMenuProcedure_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonServiceMgr/ExecMenuProcedureResponse" message="tns:ICommonServiceMgr_ExecMenuProcedure_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="CheckModIsWorkFlow">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonServiceMgr/CheckModIsWorkFlow" message="tns:ICommonServiceMgr_CheckModIsWorkFlow_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonServiceMgr/CheckModIsWorkFlowResponse" message="tns:ICommonServiceMgr_CheckModIsWorkFlow_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="StartSession">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonServiceMgr/StartSession" message="tns:ICommonServiceMgr_StartSession_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonServiceMgr/StartSessionResponse" message="tns:ICommonServiceMgr_StartSession_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="SearchMaster">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonServiceMgr/SearchMaster" message="tns:ICommonServiceMgr_SearchMaster_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonServiceMgr/SearchMasterResponse" message="tns:ICommonServiceMgr_SearchMaster_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="SearchMasterBySerialno">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonServiceMgr/SearchMasterBySerialno" message="tns:ICommonServiceMgr_SearchMasterBySerialno_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonServiceMgr/SearchMasterBySerialnoResponse" message="tns:ICommonServiceMgr_SearchMasterBySerialno_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="SerarchData">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonServiceMgr/SerarchData" message="tns:ICommonServiceMgr_SerarchData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonServiceMgr/SerarchDataResponse" message="tns:ICommonServiceMgr_SerarchData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="SearchData2">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonServiceMgr/SearchData2" message="tns:ICommonServiceMgr_SearchData2_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonServiceMgr/SearchData2Response" message="tns:ICommonServiceMgr_SearchData2_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="SaveData">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonServiceMgr/SaveData" message="tns:ICommonServiceMgr_SaveData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonServiceMgr/SaveDataResponse" message="tns:ICommonServiceMgr_SaveData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="SaveData2">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonServiceMgr/SaveData2" message="tns:ICommonServiceMgr_SaveData2_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonServiceMgr/SaveData2Response" message="tns:ICommonServiceMgr_SaveData2_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="ChangeBillStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonServiceMgr/ChangeBillStatus" message="tns:ICommonServiceMgr_ChangeBillStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonServiceMgr/ChangeBillStatusResponse" message="tns:ICommonServiceMgr_ChangeBillStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="Print">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonServiceMgr/Print" message="tns:ICommonServiceMgr_Print_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonServiceMgr/PrintResponse" message="tns:ICommonServiceMgr_Print_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetSystemDatetime">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonServiceMgr/GetSystemDatetime" message="tns:ICommonServiceMgr_GetSystemDatetime_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonServiceMgr/GetSystemDatetimeResponse" message="tns:ICommonServiceMgr_GetSystemDatetime_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="CreateBillno">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonServiceMgr/CreateBillno" message="tns:ICommonServiceMgr_CreateBillno_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonServiceMgr/CreateBillnoResponse" message="tns:ICommonServiceMgr_CreateBillno_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetExcelTemplate">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonServiceMgr/GetExcelTemplate" message="tns:ICommonServiceMgr_GetExcelTemplate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonServiceMgr/GetExcelTemplateResponse" message="tns:ICommonServiceMgr_GetExcelTemplate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="SaveExcelTemplate">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonServiceMgr/SaveExcelTemplate" message="tns:ICommonServiceMgr_SaveExcelTemplate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonServiceMgr/SaveExcelTemplateResponse" message="tns:ICommonServiceMgr_SaveExcelTemplate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="RunSQL">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonServiceMgr/RunSQL" message="tns:ICommonServiceMgr_RunSQL_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonServiceMgr/RunSQLResponse" message="tns:ICommonServiceMgr_RunSQL_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetExcelTemplateByCatId">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonServiceMgr/GetExcelTemplateByCatId" message="tns:ICommonServiceMgr_GetExcelTemplateByCatId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonServiceMgr/GetExcelTemplateByCatIdResponse" message="tns:ICommonServiceMgr_GetExcelTemplateByCatId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="DeleteExcelTemplateByCatId">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonServiceMgr/DeleteExcelTemplateByCatId" message="tns:ICommonServiceMgr_DeleteExcelTemplateByCatId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonServiceMgr/DeleteExcelTemplateByCatIdResponse" message="tns:ICommonServiceMgr_DeleteExcelTemplateByCatId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="SaveSingleData">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonServiceMgr/SaveSingleData" message="tns:ICommonServiceMgr_SaveSingleData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonServiceMgr/SaveSingleDataResponse" message="tns:ICommonServiceMgr_SaveSingleData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="DeleteBySingleId">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonServiceMgr/DeleteBySingleId" message="tns:ICommonServiceMgr_DeleteBySingleId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonServiceMgr/DeleteBySingleIdResponse" message="tns:ICommonServiceMgr_DeleteBySingleId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="SearchSingleList">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonServiceMgr/SearchSingleList" message="tns:ICommonServiceMgr_SearchSingleList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonServiceMgr/SearchSingleListResponse" message="tns:ICommonServiceMgr_SearchSingleList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="SearchSingleTree">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonServiceMgr/SearchSingleTree" message="tns:ICommonServiceMgr_SearchSingleTree_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonServiceMgr/SearchSingleTreeResponse" message="tns:ICommonServiceMgr_SearchSingleTree_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetSearchPanelHeight">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonServiceMgr/GetSearchPanelHeight" message="tns:ICommonServiceMgr_GetSearchPanelHeight_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonServiceMgr/GetSearchPanelHeightResponse" message="tns:ICommonServiceMgr_GetSearchPanelHeight_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetSyModSearch_M">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonServiceMgr/GetSyModSearch_M" message="tns:ICommonServiceMgr_GetSyModSearch_M_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonServiceMgr/GetSyModSearch_MResponse" message="tns:ICommonServiceMgr_GetSyModSearch_M_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetSYModSearch_B">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonServiceMgr/GetSYModSearch_B" message="tns:ICommonServiceMgr_GetSYModSearch_B_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonServiceMgr/GetSYModSearch_BResponse" message="tns:ICommonServiceMgr_GetSYModSearch_B_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetSYModSearch_D">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonServiceMgr/GetSYModSearch_D" message="tns:ICommonServiceMgr_GetSYModSearch_D_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonServiceMgr/GetSYModSearch_DResponse" message="tns:ICommonServiceMgr_GetSYModSearch_D_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetSYModInput_D">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonServiceMgr/GetSYModInput_D" message="tns:ICommonServiceMgr_GetSYModInput_D_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonServiceMgr/GetSYModInput_DResponse" message="tns:ICommonServiceMgr_GetSYModInput_D_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetSYModInput_B">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonServiceMgr/GetSYModInput_B" message="tns:ICommonServiceMgr_GetSYModInput_B_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonServiceMgr/GetSYModInput_BResponse" message="tns:ICommonServiceMgr_GetSYModInput_B_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetSYModInput_M">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonServiceMgr/GetSYModInput_M" message="tns:ICommonServiceMgr_GetSYModInput_M_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonServiceMgr/GetSYModInput_MResponse" message="tns:ICommonServiceMgr_GetSYModInput_M_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetSYModInput_Congfig">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommonServiceMgr/GetSYModInput_Congfig" message="tns:ICommonServiceMgr_GetSYModInput_Congfig_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommonServiceMgr/GetSYModInput_CongfigResponse" message="tns:ICommonServiceMgr_GetSYModInput_Congfig_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSHttpBinding_ICommonServiceMgr" type="tns:ICommonServiceMgr">
+    <wsp:PolicyReference URI="#WSHttpBinding_ICommonServiceMgr_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ExecSporc">
+      <soap12:operation soapAction="http://tempuri.org/ICommonServiceMgr/ExecSporc" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrintTemplateByClassName">
+      <soap12:operation soapAction="http://tempuri.org/ICommonServiceMgr/GetPrintTemplateByClassName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrintTemplateColumn">
+      <soap12:operation soapAction="http://tempuri.org/ICommonServiceMgr/GetPrintTemplateColumn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrintTemplateByCode">
+      <soap12:operation soapAction="http://tempuri.org/ICommonServiceMgr/GetPrintTemplateByCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecMenuProcedure">
+      <soap12:operation soapAction="http://tempuri.org/ICommonServiceMgr/ExecMenuProcedure" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckModIsWorkFlow">
+      <soap12:operation soapAction="http://tempuri.org/ICommonServiceMgr/CheckModIsWorkFlow" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartSession">
+      <soap12:operation soapAction="http://tempuri.org/ICommonServiceMgr/StartSession" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchMaster">
+      <soap12:operation soapAction="http://tempuri.org/ICommonServiceMgr/SearchMaster" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchMasterBySerialno">
+      <soap12:operation soapAction="http://tempuri.org/ICommonServiceMgr/SearchMasterBySerialno" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SerarchData">
+      <soap12:operation soapAction="http://tempuri.org/ICommonServiceMgr/SerarchData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchData2">
+      <soap12:operation soapAction="http://tempuri.org/ICommonServiceMgr/SearchData2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveData">
+      <soap12:operation soapAction="http://tempuri.org/ICommonServiceMgr/SaveData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveData2">
+      <soap12:operation soapAction="http://tempuri.org/ICommonServiceMgr/SaveData2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeBillStatus">
+      <soap12:operation soapAction="http://tempuri.org/ICommonServiceMgr/ChangeBillStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Print">
+      <soap12:operation soapAction="http://tempuri.org/ICommonServiceMgr/Print" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemDatetime">
+      <soap12:operation soapAction="http://tempuri.org/ICommonServiceMgr/GetSystemDatetime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateBillno">
+      <soap12:operation soapAction="http://tempuri.org/ICommonServiceMgr/CreateBillno" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExcelTemplate">
+      <soap12:operation soapAction="http://tempuri.org/ICommonServiceMgr/GetExcelTemplate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveExcelTemplate">
+      <soap12:operation soapAction="http://tempuri.org/ICommonServiceMgr/SaveExcelTemplate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RunSQL">
+      <soap12:operation soapAction="http://tempuri.org/ICommonServiceMgr/RunSQL" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExcelTemplateByCatId">
+      <soap12:operation soapAction="http://tempuri.org/ICommonServiceMgr/GetExcelTemplateByCatId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteExcelTemplateByCatId">
+      <soap12:operation soapAction="http://tempuri.org/ICommonServiceMgr/DeleteExcelTemplateByCatId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveSingleData">
+      <soap12:operation soapAction="http://tempuri.org/ICommonServiceMgr/SaveSingleData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBySingleId">
+      <soap12:operation soapAction="http://tempuri.org/ICommonServiceMgr/DeleteBySingleId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchSingleList">
+      <soap12:operation soapAction="http://tempuri.org/ICommonServiceMgr/SearchSingleList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchSingleTree">
+      <soap12:operation soapAction="http://tempuri.org/ICommonServiceMgr/SearchSingleTree" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSearchPanelHeight">
+      <soap12:operation soapAction="http://tempuri.org/ICommonServiceMgr/GetSearchPanelHeight" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSyModSearch_M">
+      <soap12:operation soapAction="http://tempuri.org/ICommonServiceMgr/GetSyModSearch_M" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSYModSearch_B">
+      <soap12:operation soapAction="http://tempuri.org/ICommonServiceMgr/GetSYModSearch_B" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSYModSearch_D">
+      <soap12:operation soapAction="http://tempuri.org/ICommonServiceMgr/GetSYModSearch_D" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSYModInput_D">
+      <soap12:operation soapAction="http://tempuri.org/ICommonServiceMgr/GetSYModInput_D" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSYModInput_B">
+      <soap12:operation soapAction="http://tempuri.org/ICommonServiceMgr/GetSYModInput_B" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSYModInput_M">
+      <soap12:operation soapAction="http://tempuri.org/ICommonServiceMgr/GetSYModInput_M" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSYModInput_Congfig">
+      <soap12:operation soapAction="http://tempuri.org/ICommonServiceMgr/GetSYModInput_Congfig" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CommonServiceMgr">
+    <wsdl:port name="WSHttpBinding_ICommonServiceMgr" binding="tns:WSHttpBinding_ICommonServiceMgr">
+      <soap12:address location="http://192.168.0.198/BllService/CommonServiceMgr.svc" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>http://192.168.0.198/BllService/CommonServiceMgr.svc</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

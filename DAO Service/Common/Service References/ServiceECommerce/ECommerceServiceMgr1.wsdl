@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ECommerceServiceMgr" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="WSHttpBinding_IECommerceServiceMgr_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsrm:RMAssertion xmlns:wsrm="http://schemas.xmlsoap.org/ws/2005/02/rm/policy">
+          <wsrm:InactivityTimeout Milliseconds="28800000" />
+          <wsrm:AcknowledgementInterval Milliseconds="200" />
+        </wsrm:RMAssertion>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://192.168.0.198:9990/BllService_Test/ECommerceServiceMgr.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://192.168.0.198:9990/BllService_Test/ECommerceServiceMgr.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://192.168.0.198:9990/BllService_Test/ECommerceServiceMgr.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IECommerceServiceMgr_StartSession_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartSession" />
+  </wsdl:message>
+  <wsdl:message name="IECommerceServiceMgr_StartSession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IECommerceServiceMgr_SynchroSellerShop_InputMessage">
+    <wsdl:part name="parameters" element="tns:SynchroSellerShop" />
+  </wsdl:message>
+  <wsdl:message name="IECommerceServiceMgr_SynchroSellerShop_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SynchroSellerShopResponse" />
+  </wsdl:message>
+  <wsdl:message name="IECommerceServiceMgr_SynchroLogisticsCompanies_InputMessage">
+    <wsdl:part name="parameters" element="tns:SynchroLogisticsCompanies" />
+  </wsdl:message>
+  <wsdl:message name="IECommerceServiceMgr_SynchroLogisticsCompanies_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SynchroLogisticsCompaniesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IECommerceServiceMgr_SynchroAreas_InputMessage">
+    <wsdl:part name="parameters" element="tns:SynchroAreas" />
+  </wsdl:message>
+  <wsdl:message name="IECommerceServiceMgr_SynchroAreas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SynchroAreasResponse" />
+  </wsdl:message>
+  <wsdl:message name="IECommerceServiceMgr_TopatsTradesSoldToTask_InputMessage">
+    <wsdl:part name="parameters" element="tns:TopatsTradesSoldToTask" />
+  </wsdl:message>
+  <wsdl:message name="IECommerceServiceMgr_TopatsTradesSoldToTask_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TopatsTradesSoldToTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="IECommerceServiceMgr_SynTradesSoldByTaskId_InputMessage">
+    <wsdl:part name="parameters" element="tns:SynTradesSoldByTaskId" />
+  </wsdl:message>
+  <wsdl:message name="IECommerceServiceMgr_SynTradesSoldByTaskId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SynTradesSoldByTaskIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IECommerceServiceMgr_GetTradesSoldIncrement_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTradesSoldIncrement" />
+  </wsdl:message>
+  <wsdl:message name="IECommerceServiceMgr_GetTradesSoldIncrement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTradesSoldIncrementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IECommerceServiceMgr_OnlineCconfirm_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnlineCconfirm" />
+  </wsdl:message>
+  <wsdl:message name="IECommerceServiceMgr_OnlineCconfirm_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnlineCconfirmResponse" />
+  </wsdl:message>
+  <wsdl:message name="IECommerceServiceMgr_OnlineSend_InputMessage">
+    <wsdl:part name="parameters" element="tns:OnlineSend" />
+  </wsdl:message>
+  <wsdl:message name="IECommerceServiceMgr_OnlineSend_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OnlineSendResponse" />
+  </wsdl:message>
+  <wsdl:message name="IECommerceServiceMgr_UpdateShopStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateShopStatus" />
+  </wsdl:message>
+  <wsdl:message name="IECommerceServiceMgr_UpdateShopStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateShopStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IECommerceServiceMgr_StartUpdateTrades_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartUpdateTrades" />
+  </wsdl:message>
+  <wsdl:message name="IECommerceServiceMgr_StartUpdateTrades_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartUpdateTradesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IECommerceServiceMgr_StopUpdateTrades_InputMessage">
+    <wsdl:part name="parameters" element="tns:StopUpdateTrades" />
+  </wsdl:message>
+  <wsdl:message name="IECommerceServiceMgr_StopUpdateTrades_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StopUpdateTradesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IECommerceServiceMgr_CloseTradeSingle_InputMessage">
+    <wsdl:part name="parameters" element="tns:CloseTradeSingle" />
+  </wsdl:message>
+  <wsdl:message name="IECommerceServiceMgr_CloseTradeSingle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CloseTradeSingleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IECommerceServiceMgr_UpdateTradeMemo_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTradeMemo" />
+  </wsdl:message>
+  <wsdl:message name="IECommerceServiceMgr_UpdateTradeMemo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTradeMemoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IECommerceServiceMgr_GetFenxiaoOrders_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFenxiaoOrders" />
+  </wsdl:message>
+  <wsdl:message name="IECommerceServiceMgr_GetFenxiaoOrders_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFenxiaoOrdersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IECommerceServiceMgr_CloseFenxiaoOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:CloseFenxiaoOrder" />
+  </wsdl:message>
+  <wsdl:message name="IECommerceServiceMgr_CloseFenxiaoOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CloseFenxiaoOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IECommerceServiceMgr_UpdateFenxiaoOrderRemark_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateFenxiaoOrderRemark" />
+  </wsdl:message>
+  <wsdl:message name="IECommerceServiceMgr_UpdateFenxiaoOrderRemark_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateFenxiaoOrderRemarkResponse" />
+  </wsdl:message>
+  <wsdl:message name="IECommerceServiceMgr_GetRefundsReceive_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRefundsReceive" />
+  </wsdl:message>
+  <wsdl:message name="IECommerceServiceMgr_GetRefundsReceive_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRefundsReceiveResponse" />
+  </wsdl:message>
+  <wsdl:message name="IECommerceServiceMgr_UpdateTaoBaoStock_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTaoBaoStock" />
+  </wsdl:message>
+  <wsdl:message name="IECommerceServiceMgr_UpdateTaoBaoStock_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTaoBaoStockResponse" />
+  </wsdl:message>
+  <wsdl:message name="IECommerceServiceMgr_GetJdOrderList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetJdOrderList" />
+  </wsdl:message>
+  <wsdl:message name="IECommerceServiceMgr_GetJdOrderList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetJdOrderListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IECommerceServiceMgr_UpdateJdStock_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateJdStock" />
+  </wsdl:message>
+  <wsdl:message name="IECommerceServiceMgr_UpdateJdStock_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateJdStockResponse" />
+  </wsdl:message>
+  <wsdl:message name="IECommerceServiceMgr_test_InputMessage">
+    <wsdl:part name="parameters" element="tns:test" />
+  </wsdl:message>
+  <wsdl:message name="IECommerceServiceMgr_test_OutputMessage">
+    <wsdl:part name="parameters" element="tns:testResponse" />
+  </wsdl:message>
+  <wsdl:message name="IECommerceServiceMgr_Test2_InputMessage">
+    <wsdl:part name="parameters" element="tns:Test2" />
+  </wsdl:message>
+  <wsdl:message name="IECommerceServiceMgr_Test2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Test2Response" />
+  </wsdl:message>
+  <wsdl:portType msc:usingSession="true" name="IECommerceServiceMgr">
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="StartSession">
+      <wsdl:input wsaw:Action="http://tempuri.org/IECommerceServiceMgr/StartSession" message="tns:IECommerceServiceMgr_StartSession_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IECommerceServiceMgr/StartSessionResponse" message="tns:IECommerceServiceMgr_StartSession_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="SynchroSellerShop">
+      <wsdl:input wsaw:Action="http://tempuri.org/IECommerceServiceMgr/SynchroSellerShop" message="tns:IECommerceServiceMgr_SynchroSellerShop_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IECommerceServiceMgr/SynchroSellerShopResponse" message="tns:IECommerceServiceMgr_SynchroSellerShop_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="SynchroLogisticsCompanies">
+      <wsdl:input wsaw:Action="http://tempuri.org/IECommerceServiceMgr/SynchroLogisticsCompanies" message="tns:IECommerceServiceMgr_SynchroLogisticsCompanies_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IECommerceServiceMgr/SynchroLogisticsCompaniesResponse" message="tns:IECommerceServiceMgr_SynchroLogisticsCompanies_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="SynchroAreas">
+      <wsdl:input wsaw:Action="http://tempuri.org/IECommerceServiceMgr/SynchroAreas" message="tns:IECommerceServiceMgr_SynchroAreas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IECommerceServiceMgr/SynchroAreasResponse" message="tns:IECommerceServiceMgr_SynchroAreas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="TopatsTradesSoldToTask">
+      <wsdl:input wsaw:Action="http://tempuri.org/IECommerceServiceMgr/TopatsTradesSoldToTask" message="tns:IECommerceServiceMgr_TopatsTradesSoldToTask_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IECommerceServiceMgr/TopatsTradesSoldToTaskResponse" message="tns:IECommerceServiceMgr_TopatsTradesSoldToTask_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="SynTradesSoldByTaskId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IECommerceServiceMgr/SynTradesSoldByTaskId" message="tns:IECommerceServiceMgr_SynTradesSoldByTaskId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IECommerceServiceMgr/SynTradesSoldByTaskIdResponse" message="tns:IECommerceServiceMgr_SynTradesSoldByTaskId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetTradesSoldIncrement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IECommerceServiceMgr/GetTradesSoldIncrement" message="tns:IECommerceServiceMgr_GetTradesSoldIncrement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IECommerceServiceMgr/GetTradesSoldIncrementResponse" message="tns:IECommerceServiceMgr_GetTradesSoldIncrement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="OnlineCconfirm">
+      <wsdl:input wsaw:Action="http://tempuri.org/IECommerceServiceMgr/OnlineCconfirm" message="tns:IECommerceServiceMgr_OnlineCconfirm_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IECommerceServiceMgr/OnlineCconfirmResponse" message="tns:IECommerceServiceMgr_OnlineCconfirm_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="OnlineSend">
+      <wsdl:input wsaw:Action="http://tempuri.org/IECommerceServiceMgr/OnlineSend" message="tns:IECommerceServiceMgr_OnlineSend_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IECommerceServiceMgr/OnlineSendResponse" message="tns:IECommerceServiceMgr_OnlineSend_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="UpdateShopStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IECommerceServiceMgr/UpdateShopStatus" message="tns:IECommerceServiceMgr_UpdateShopStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IECommerceServiceMgr/UpdateShopStatusResponse" message="tns:IECommerceServiceMgr_UpdateShopStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="StartUpdateTrades">
+      <wsdl:input wsaw:Action="http://tempuri.org/IECommerceServiceMgr/StartUpdateTrades" message="tns:IECommerceServiceMgr_StartUpdateTrades_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IECommerceServiceMgr/StartUpdateTradesResponse" message="tns:IECommerceServiceMgr_StartUpdateTrades_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="StopUpdateTrades">
+      <wsdl:input wsaw:Action="http://tempuri.org/IECommerceServiceMgr/StopUpdateTrades" message="tns:IECommerceServiceMgr_StopUpdateTrades_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IECommerceServiceMgr/StopUpdateTradesResponse" message="tns:IECommerceServiceMgr_StopUpdateTrades_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="CloseTradeSingle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IECommerceServiceMgr/CloseTradeSingle" message="tns:IECommerceServiceMgr_CloseTradeSingle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IECommerceServiceMgr/CloseTradeSingleResponse" message="tns:IECommerceServiceMgr_CloseTradeSingle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="UpdateTradeMemo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IECommerceServiceMgr/UpdateTradeMemo" message="tns:IECommerceServiceMgr_UpdateTradeMemo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IECommerceServiceMgr/UpdateTradeMemoResponse" message="tns:IECommerceServiceMgr_UpdateTradeMemo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetFenxiaoOrders">
+      <wsdl:input wsaw:Action="http://tempuri.org/IECommerceServiceMgr/GetFenxiaoOrders" message="tns:IECommerceServiceMgr_GetFenxiaoOrders_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IECommerceServiceMgr/GetFenxiaoOrdersResponse" message="tns:IECommerceServiceMgr_GetFenxiaoOrders_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="CloseFenxiaoOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IECommerceServiceMgr/CloseFenxiaoOrder" message="tns:IECommerceServiceMgr_CloseFenxiaoOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IECommerceServiceMgr/CloseFenxiaoOrderResponse" message="tns:IECommerceServiceMgr_CloseFenxiaoOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="UpdateFenxiaoOrderRemark">
+      <wsdl:input wsaw:Action="http://tempuri.org/IECommerceServiceMgr/UpdateFenxiaoOrderRemark" message="tns:IECommerceServiceMgr_UpdateFenxiaoOrderRemark_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IECommerceServiceMgr/UpdateFenxiaoOrderRemarkResponse" message="tns:IECommerceServiceMgr_UpdateFenxiaoOrderRemark_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetRefundsReceive">
+      <wsdl:input wsaw:Action="http://tempuri.org/IECommerceServiceMgr/GetRefundsReceive" message="tns:IECommerceServiceMgr_GetRefundsReceive_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IECommerceServiceMgr/GetRefundsReceiveResponse" message="tns:IECommerceServiceMgr_GetRefundsReceive_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="UpdateTaoBaoStock">
+      <wsdl:input wsaw:Action="http://tempuri.org/IECommerceServiceMgr/UpdateTaoBaoStock" message="tns:IECommerceServiceMgr_UpdateTaoBaoStock_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IECommerceServiceMgr/UpdateTaoBaoStockResponse" message="tns:IECommerceServiceMgr_UpdateTaoBaoStock_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetJdOrderList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IECommerceServiceMgr/GetJdOrderList" message="tns:IECommerceServiceMgr_GetJdOrderList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IECommerceServiceMgr/GetJdOrderListResponse" message="tns:IECommerceServiceMgr_GetJdOrderList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="UpdateJdStock">
+      <wsdl:input wsaw:Action="http://tempuri.org/IECommerceServiceMgr/UpdateJdStock" message="tns:IECommerceServiceMgr_UpdateJdStock_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IECommerceServiceMgr/UpdateJdStockResponse" message="tns:IECommerceServiceMgr_UpdateJdStock_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="test">
+      <wsdl:input wsaw:Action="http://tempuri.org/IECommerceServiceMgr/test" message="tns:IECommerceServiceMgr_test_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IECommerceServiceMgr/testResponse" message="tns:IECommerceServiceMgr_test_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="Test2">
+      <wsdl:input wsaw:Action="http://tempuri.org/IECommerceServiceMgr/Test2" message="tns:IECommerceServiceMgr_Test2_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IECommerceServiceMgr/Test2Response" message="tns:IECommerceServiceMgr_Test2_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSHttpBinding_IECommerceServiceMgr" type="tns:IECommerceServiceMgr">
+    <wsp:PolicyReference URI="#WSHttpBinding_IECommerceServiceMgr_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="StartSession">
+      <soap12:operation soapAction="http://tempuri.org/IECommerceServiceMgr/StartSession" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SynchroSellerShop">
+      <soap12:operation soapAction="http://tempuri.org/IECommerceServiceMgr/SynchroSellerShop" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SynchroLogisticsCompanies">
+      <soap12:operation soapAction="http://tempuri.org/IECommerceServiceMgr/SynchroLogisticsCompanies" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SynchroAreas">
+      <soap12:operation soapAction="http://tempuri.org/IECommerceServiceMgr/SynchroAreas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TopatsTradesSoldToTask">
+      <soap12:operation soapAction="http://tempuri.org/IECommerceServiceMgr/TopatsTradesSoldToTask" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SynTradesSoldByTaskId">
+      <soap12:operation soapAction="http://tempuri.org/IECommerceServiceMgr/SynTradesSoldByTaskId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTradesSoldIncrement">
+      <soap12:operation soapAction="http://tempuri.org/IECommerceServiceMgr/GetTradesSoldIncrement" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OnlineCconfirm">
+      <soap12:operation soapAction="http://tempuri.org/IECommerceServiceMgr/OnlineCconfirm" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OnlineSend">
+      <soap12:operation soapAction="http://tempuri.org/IECommerceServiceMgr/OnlineSend" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateShopStatus">
+      <soap12:operation soapAction="http://tempuri.org/IECommerceServiceMgr/UpdateShopStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartUpdateTrades">
+      <soap12:operation soapAction="http://tempuri.org/IECommerceServiceMgr/StartUpdateTrades" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StopUpdateTrades">
+      <soap12:operation soapAction="http://tempuri.org/IECommerceServiceMgr/StopUpdateTrades" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloseTradeSingle">
+      <soap12:operation soapAction="http://tempuri.org/IECommerceServiceMgr/CloseTradeSingle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTradeMemo">
+      <soap12:operation soapAction="http://tempuri.org/IECommerceServiceMgr/UpdateTradeMemo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFenxiaoOrders">
+      <soap12:operation soapAction="http://tempuri.org/IECommerceServiceMgr/GetFenxiaoOrders" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloseFenxiaoOrder">
+      <soap12:operation soapAction="http://tempuri.org/IECommerceServiceMgr/CloseFenxiaoOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFenxiaoOrderRemark">
+      <soap12:operation soapAction="http://tempuri.org/IECommerceServiceMgr/UpdateFenxiaoOrderRemark" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRefundsReceive">
+      <soap12:operation soapAction="http://tempuri.org/IECommerceServiceMgr/GetRefundsReceive" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTaoBaoStock">
+      <soap12:operation soapAction="http://tempuri.org/IECommerceServiceMgr/UpdateTaoBaoStock" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJdOrderList">
+      <soap12:operation soapAction="http://tempuri.org/IECommerceServiceMgr/GetJdOrderList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateJdStock">
+      <soap12:operation soapAction="http://tempuri.org/IECommerceServiceMgr/UpdateJdStock" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="test">
+      <soap12:operation soapAction="http://tempuri.org/IECommerceServiceMgr/test" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test2">
+      <soap12:operation soapAction="http://tempuri.org/IECommerceServiceMgr/Test2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ECommerceServiceMgr">
+    <wsdl:port name="WSHttpBinding_IECommerceServiceMgr" binding="tns:WSHttpBinding_IECommerceServiceMgr">
+      <soap12:address location="http://192.168.0.198:9990/BllService_Test/ECommerceServiceMgr.svc" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>http://192.168.0.198:9990/BllService_Test/ECommerceServiceMgr.svc</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

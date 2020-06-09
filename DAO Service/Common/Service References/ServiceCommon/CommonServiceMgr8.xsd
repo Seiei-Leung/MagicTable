@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/BllService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/BllService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://192.168.0.198/BllService/CommonServiceMgr.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="Excute_Status">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="msg" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="status" type="tns:Status" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Excute_Status" nillable="true" type="tns:Excute_Status" />
+  <xs:simpleType name="Status">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SUCCESS" />
+      <xs:enumeration value="FAIL" />
+      <xs:enumeration value="TRUE" />
+      <xs:enumeration value="FALSE" />
+      <xs:enumeration value="ERROR" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Status" nillable="true" type="tns:Status" />
+  <xs:simpleType name="BillStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Uncheck" />
+      <xs:enumeration value="Check" />
+      <xs:enumeration value="Approve" />
+      <xs:enumeration value="Cancellation">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="BillStatus" nillable="true" type="tns:BillStatus" />
+</xs:schema>

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServiceMgr" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="WSDualHttpBinding_IServiceMgr_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsrm:RMAssertion xmlns:wsrm="http://schemas.xmlsoap.org/ws/2005/02/rm/policy">
+          <wsrm:InactivityTimeout Milliseconds="28800000" />
+          <wsrm:AcknowledgementInterval Milliseconds="200" />
+        </wsrm:RMAssertion>
+        <cdp:CompositeDuplex xmlns:cdp="http://schemas.microsoft.com/net/2006/06/duplex" />
+        <ow:OneWay xmlns:ow="http://schemas.microsoft.com/ws/2005/05/routing/policy" />
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://192.168.0.49/BllService/ServiceMgr.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://192.168.0.49/BllService/ServiceMgr.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://192.168.0.49/BllService/ServiceMgr.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://192.168.0.49/BllService/ServiceMgr.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/BllService" />
+      <xsd:import schemaLocation="http://192.168.0.49/BllService/ServiceMgr.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IServiceMgr_SessionKilled_InputMessage">
+    <wsdl:part name="parameters" element="tns:SessionKilled" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMgr_RepeatSessionKilled_InputMessage">
+    <wsdl:part name="parameters" element="tns:RepeatSessionKilled" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMgr_SessionTimeout_InputMessage">
+    <wsdl:part name="parameters" element="tns:SessionTimeout" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMgr_SessionTimeout_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SessionTimeoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMgr_RegisterSession_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterSession" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMgr_GetActiveSessions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetActiveSessions" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMgr_GetActiveSessions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetActiveSessionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMgr_AddWarningTable_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddWarningTable" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMgr_AddWarningTable_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddWarningTableResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMgr_OnSessionKilled_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:OnSessionKilled" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMgr_OnSessionTimeout_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:OnSessionTimeout" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMgr_OnRepeatLogin_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:OnRepeatLogin" />
+  </wsdl:message>
+  <wsdl:message name="IServiceMgr_OnRepeatLogin_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:OnRepeatLoginResponse" />
+  </wsdl:message>
+  <wsdl:portType msc:usingSession="true" name="IServiceMgr">
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="SessionKilled">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceMgr/SessionKilled" message="tns:IServiceMgr_SessionKilled_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="RepeatSessionKilled">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceMgr/RepeatSessionKilled" message="tns:IServiceMgr_RepeatSessionKilled_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="SessionTimeout">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceMgr/SessionTimeout" message="tns:IServiceMgr_SessionTimeout_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceMgr/SessionTimeoutResponse" message="tns:IServiceMgr_SessionTimeout_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="RegisterSession">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceMgr/RegisterSession" message="tns:IServiceMgr_RegisterSession_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetActiveSessions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceMgr/GetActiveSessions" message="tns:IServiceMgr_GetActiveSessions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceMgr/GetActiveSessionsResponse" message="tns:IServiceMgr_GetActiveSessions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="AddWarningTable">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceMgr/AddWarningTable" message="tns:IServiceMgr_AddWarningTable_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceMgr/AddWarningTableResponse" message="tns:IServiceMgr_AddWarningTable_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="OnSessionKilled">
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceMgr/OnSessionKilled" message="tns:IServiceMgr_OnSessionKilled_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="OnSessionTimeout">
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceMgr/OnSessionTimeout" message="tns:IServiceMgr_OnSessionTimeout_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="OnRepeatLogin">
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceMgr/OnRepeatLogin" message="tns:IServiceMgr_OnRepeatLogin_OutputCallbackMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceMgr/OnRepeatLoginResponse" message="tns:IServiceMgr_OnRepeatLogin_InputCallbackMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSDualHttpBinding_IServiceMgr" type="tns:IServiceMgr">
+    <wsp:PolicyReference URI="#WSDualHttpBinding_IServiceMgr_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SessionKilled">
+      <soap12:operation soapAction="http://tempuri.org/IServiceMgr/SessionKilled" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="RepeatSessionKilled">
+      <soap12:operation soapAction="http://tempuri.org/IServiceMgr/RepeatSessionKilled" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="SessionTimeout">
+      <soap12:operation soapAction="http://tempuri.org/IServiceMgr/SessionTimeout" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterSession">
+      <soap12:operation soapAction="http://tempuri.org/IServiceMgr/RegisterSession" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveSessions">
+      <soap12:operation soapAction="http://tempuri.org/IServiceMgr/GetActiveSessions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddWarningTable">
+      <soap12:operation soapAction="http://tempuri.org/IServiceMgr/AddWarningTable" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OnSessionKilled">
+      <soap12:operation soapAction="http://tempuri.org/IServiceMgr/OnSessionKilled" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OnSessionTimeout">
+      <soap12:operation soapAction="http://tempuri.org/IServiceMgr/OnSessionTimeout" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OnRepeatLogin">
+      <soap12:operation soapAction="http://tempuri.org/IServiceMgr/OnRepeatLogin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServiceMgr">
+    <wsdl:port name="WSDualHttpBinding_IServiceMgr" binding="tns:WSDualHttpBinding_IServiceMgr">
+      <soap12:address location="http://192.168.0.49/BllService/ServiceMgr.svc" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>http://192.168.0.49/BllService/ServiceMgr.svc</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
